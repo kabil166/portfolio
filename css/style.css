@@ -1,0 +1,128 @@
+*
+*::after
+*::before{
+    box-sizing: border-box;
+}
+
+:root
+{
+    --s-font : "Source Sans Pro", sans-serif;
+    --f-font : "Source Code Pro", monospace;
+
+    --fw-reg: 300;
+    --fw-bold : 700;
+
+    --clr-light: #fff;
+    --clr-dark : #303030;
+    --clr-green: #16e0bd;
+
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.5rem;
+    --fs-reg: 1rem;
+
+    --bs: .25em .25em 1em .25em rgba(77, 75, 75, 0.25);
+}
+
+@media (min-width: 800px){
+    :root{
+    --fs-h1: 4.5rem;
+    --fs-h2: 3.25rem;
+    --fs-h3: 2.75rem;
+    --fs-reg: 1.5rem;
+    }
+}
+
+body{
+    background-color: var(--clr-light);
+    color: var(--clr_dark);
+    margin: 0;
+    font-family: var(--f-font);
+    font-size:var(--fs-reg);
+    line-height: 1.5;
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+section{
+    padding: 5em 3em;
+}
+img{
+    display: block;
+    max-width: 100%;
+}
+h1,
+h2,
+h3{
+    line-height: 1.1;
+    margin: 0;
+}
+strong{
+    font-weight: var(--fw-bold);
+}
+h1{ font-size: var(--fs-h1);}
+h2{ font-size: var(--fs-h2);}
+h3{ font-size: var(--fs-h3);}
+
+.section_title{
+    margin-bottom: .5em;
+}
+
+.section_title-intro{
+    font-weight: var(--fw-reg);
+}
+.section_title-intro strong{
+    display: block;
+}
+.section_subtitle{
+    font-size: var(--fs-h3);
+}
+
+.section_subtitle_intro,
+.section_subtitle-about{
+    background-color: var(--clr-green);
+    font-family: var(--f-font);
+    margin-bottom: 1em;
+}
+.intro_img{
+    box-shadow: var(--bs);
+}
+
+nav{
+    display: none;
+}
+.intro{
+    position: relative;
+    align-items: center;
+    align-content: center;
+}
+.section_subtitle_intro{
+    display: inline-block;
+    padding: 0 1em;
+}
+
+@media (min-width: 600px){
+    .intro{
+        display: grid;
+        grid-template-areas: 
+        "img title"
+        "img subtitle";
+        grid-template-columns: min-content max-content;
+    }
+    .intro_img{
+        grid-area: img;
+        min-width: 250px;
+        position: relative;
+        z-index: 2;
+    }
+    .section_subtitle_intro{
+        align-self: start;
+        grid-column: -1/1;
+        grid-row:2;
+        text-align: right;
+        position: relative;
+        left: -1.5em;
+        width: calc(100%+1.5em);
+    }
+}
